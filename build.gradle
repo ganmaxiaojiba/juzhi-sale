@@ -8,6 +8,11 @@ repositories {
     mavenCentral()
 }
 
+
+ext {
+
+}
+
 dependencies {
     compile(
             'javax.servlet:servlet-api:2.5',
