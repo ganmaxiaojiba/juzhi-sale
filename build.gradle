@@ -1,0 +1,22 @@
+description = ''
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'jetty'
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(
+            'javax.servlet:servlet-api:2.5',
+            'org.springframework:spring-core:4.0.3.RELEASE',
+            'org.springframework:spring-webmvc:4.0.3.RELEASE',
+            'org.apache.velocity:velocity:1.7',
+            'org.springframework:spring-context-support:4.0.0.RELEASE',
+            'mysql:mysql-connector-java:5.0.8'
+
+    )
+
+}
