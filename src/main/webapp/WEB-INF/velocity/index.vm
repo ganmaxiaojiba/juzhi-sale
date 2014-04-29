@@ -1,5 +1,8 @@
 <html>
 <body>
 Hello world!
+<form method="GET">
+<input type="text" name="name" size="20"/>
+</from>
 </body>
 </html>

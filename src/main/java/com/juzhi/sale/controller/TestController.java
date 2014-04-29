@@ -4,6 +4,9 @@ package com.juzhi.sale.controller;
  * Created by xjwan on 4/28/14.
  */
 
+import com.juzhi.sale.dao.HelloDaoImpl;
+import com.juzhi.sale.entity.Hello;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +23,8 @@ import java.util.Map;
 
 @Controller
 public class TestController {
+    @Autowired
+    private HelloDaoImpl helloDaoImpl;
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
    // @ResponseBody 直接返回string
@@ -29,7 +34,7 @@ public class TestController {
     }
 
     @RequestMapping(value = "/vt",method = RequestMethod.GET)
-    protected ModelAndView handleRequestInternal( HttpServletRequest request, HttpServletResponse response) throws Exception {
+    protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         Map map = new HashMap();
         List wordList = new ArrayList();
@@ -40,5 +45,15 @@ public class TestController {
         map.put("wordList", wordList);
 
         return new ModelAndView("index", map);
+    }
+
+    @RequestMapping(value = "/save",method = RequestMethod.GET)
+    public String saveHello(){
+        Hello hello = new Hello();
+        hello.setId(1);
+        hello.setName("hello");
+        helloDaoImpl.insert(hello);
+
+        return "success";
     }
 }
