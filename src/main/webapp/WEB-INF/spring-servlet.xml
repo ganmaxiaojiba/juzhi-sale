@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -18,7 +16,6 @@
 
     <mvc:resources mapping="/resources/**" location="/resources/"/>
     <mvc:annotation-driven/>
-
 
 
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
@@ -40,7 +37,7 @@
   environment, but the defaults are pretty sane for file based template loading.
 -->
     <!--<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">-->
-        <!--<property name="configLocation" value="/WEB-INF/velocity.properties"/>-->
+    <!--<property name="configLocation" value="/WEB-INF/velocity.properties"/>-->
     <!--</bean>-->
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
@@ -48,6 +45,6 @@
         <property name="prefix" value=""/>
         <property name="suffix" value=".vm"/>
 
-        <property name="contentType" value="text/html;charset=utf-8"></property>
+        <property name="contentType" value="text/html;charset=utf-8"/>
     </bean>
 </beans>
