@@ -14,13 +14,13 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.juzhi.sale.controller"/>
 
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/resources/**" location="classpath:resources/"/>
     <mvc:annotation-driven/>
 
 
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
 
-        <property name="resourceLoaderPath" value="/WEB-INF/templates/"/>
+        <property name="resourceLoaderPath" value="classpath:templates/"/>
 
         <property name="velocityProperties">
             <props>
@@ -31,20 +31,12 @@
         </property>
     </bean>
 
-    <!--
-  This bean sets up the Velocity environment for us based on a root path for templates.
-  Optionally, a properties file can be specified for more control over the Velocity
-  environment, but the defaults are pretty sane for file based template loading.
--->
-    <!--<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">-->
-    <!--<property name="configLocation" value="/WEB-INF/velocity.properties"/>-->
-    <!--</bean>-->
-
     <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="cache" value="true"/>
         <property name="prefix" value=""/>
         <property name="suffix" value=".vm"/>
 
         <property name="contentType" value="text/html;charset=utf-8"/>
+
     </bean>
 </beans>
