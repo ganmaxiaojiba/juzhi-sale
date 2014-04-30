@@ -5,7 +5,8 @@
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 			">
 
+    <bean id="helloDaoImpl" class="com.juzhi.sale.dao.HelloDaoImpl" />
 
-    <bean id="hello" class="com.juzhi.sale.entity.Hello"/>
+    <bean id="channelDao" class="com.juzhi.sale.dao.ChannelDaoImpl" />
 
 </beans>
