@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html>
+        <meta charset="UTF-8">
+        <title>Juzhi Admin</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="../css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="../css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+        <a href="../index.html" class="logo">
+            <!-- Add the class icon to your logo image or logo icon to add the margining -->
+巨智综合服务信息平台
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+        <div class="navbar-right">
+            <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-envelope"></i>
+                    <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header">You have 4 messages</li>
+                    <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                        <li><!-- start message -->
+                        <a href="#">
+                            <div class="pull-left">
+                                <img src="../img/avatar3.png" class="img-circle" alt="User Image"/>
+                            </div>
+                            <h4>
+                                Support Team
+                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                        </a>
+                        </li><!-- end message -->
+                        <li>
+                        <a href="#">
+                            <div class="pull-left">
+                                <img src="../img/avatar2.png" class="img-circle" alt="user image"/>
+                            </div>
+                            <h4>
+                                AdminLTE Design Team
+                                <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#">
+                            <div class="pull-left">
+                                <img src="../img/avatar.png" class="img-circle" alt="user image"/>
+                            </div>
+                            <h4>
+                                Developers
+                                <small><i class="fa fa-clock-o"></i> Today</small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#">
+                            <div class="pull-left">
+                                <img src="../img/avatar2.png" class="img-circle" alt="user image"/>
+                            </div>
+                            <h4>
+                                Sales Department
+                                <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#">
+                            <div class="pull-left">
+                                <img src="../img/avatar.png" class="img-circle" alt="user image"/>
+                            </div>
+                            <h4>
+                                Reviewers
+                                <small><i class="fa fa-clock-o"></i> 2 days</small>
+                            </h4>
+                            <p>Why not buy a new awesome theme?</p>
+                        </a>
+                        </li>
+                    </ul>
+                    </li>
+                    <li class="footer"><a href="#">See All Messages</a></li>
+                </ul>
+                </li>
+                <!-- Notifications: style can be found in dropdown.less -->
+                <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-warning"></i>
+                    <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header">You have 10 notifications</li>
+                    <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                        <li>
+                        <a href="#">
+                            <i class="ion ion-ios7-people info"></i> 5 new members joined today
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#">
+                            <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#">
+                            <i class="fa fa-users warning"></i> 5 new members joined
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="#">
+                            <i class="ion ion-ios7-cart success"></i> 25 sales made
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#">
+                            <i class="ion ion-ios7-person danger"></i> You changed your username
+                        </a>
+                        </li>
+                    </ul>
+                    </li>
+                    <li class="footer"><a href="#">View all</a></li>
+                </ul>
+                </li>
+                <!-- Tasks: style can be found in dropdown.less -->
+                <li class="dropdown tasks-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-tasks"></i>
+                    <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header">You have 9 tasks</li>
+                    <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                        <li><!-- Task item -->
+                        <a href="#">
+                            <h3>
+                                Design some buttons
+                                <small class="pull-right">20%</small>
+                            </h3>
+                            <div class="progress xs">
+                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="sr-only">20% Complete</span>
+                                </div>
+                            </div>
+                        </a>
+                        </li><!-- end task item -->
+                        <li><!-- Task item -->
+                        <a href="#">
+                            <h3>
+                                Create a nice theme
+                                <small class="pull-right">40%</small>
+                            </h3>
+                            <div class="progress xs">
+                                <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="sr-only">40% Complete</span>
+                                </div>
+                            </div>
+                        </a>
+                        </li><!-- end task item -->
+                        <li><!-- Task item -->
+                        <a href="#">
+                            <h3>
+                                Some task I need to do
+                                <small class="pull-right">60%</small>
+                            </h3>
+                            <div class="progress xs">
+                                <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="sr-only">60% Complete</span>
+                                </div>
+                            </div>
+                        </a>
+                        </li><!-- end task item -->
+                        <li><!-- Task item -->
+                        <a href="#">
+                            <h3>
+                                Make beautiful transitions
+                                <small class="pull-right">80%</small>
+                            </h3>
+                            <div class="progress xs">
+                                <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="sr-only">80% Complete</span>
+                                </div>
+                            </div>
+                        </a>
+                        </li><!-- end task item -->
+                    </ul>
+                    </li>
+                    <li class="footer">
+                    <a href="#">View all tasks</a>
+                    </li>
+                </ul>
+                </li>
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span>Jane Doe <i class="caret"></i></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <!-- User image -->
+                    <li class="user-header bg-light-blue">
+                    <img src="../img/avatar3.png" class="img-circle" alt="User Image" />
+                    <p>
+                    Jane Doe - Web Developer
+                    <small>Member since Nov. 2012</small>
+                    </p>
+                    </li>
+                    <!-- Menu Body -->
+                    <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                        <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <a href="#">Friends</a>
+                    </div>
+                    </li>
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                    <div class="pull-left">
+                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                    </li>
+                </ul>
+                </li>
+            </ul>
+        </div>
+        </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="../img/avatar3.png" class="img-circle" alt="User Image" />
+                </div>
+                <div class="pull-left info">
+                    <p>Hello, Jane</p>
+
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+            <!-- search form -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                    <span class="input-group-btn">
+                        <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                           <li class="active">
+                <a href="widgets.html">
+                    <i class="fa fa-th"></i> <span>网络营销平台</span>                 </a>
+                </li>
+            </ul>
+            </section>
+            <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+            <h1>
+网络营销平台
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Widgets</li>
+            </ol>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+    <h4 class="page-header">
+常用
+            </h4>
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-olive">
+                        <div class="inner">
+                            <h3>
+华智后台
+
+                            </h3>
+                            <p>
+
+
+http://witsun.cn/hzdedeguanli/
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://witsun.cn/hzdedeguanli/
+
+" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-olive">
+                        <div class="inner">
+                            <h3>
+百度推广
+
+                            </h3>
+                            <p>
+http://www2.baidu.com
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://www2.baidu.com
+
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                  <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-olive">
+                        <div class="inner">
+                            <h3>
+
+百度知道
+                            </h3>
+                            <p>
+
+http://www.baidu.com/p/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://www.baidu.com/p/%E5%8D%8E%E6%99%BA%E5%85%AC%E5%8A%A1%E5%91%983
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                 <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-olive">
+                        <div class="inner">
+                            <h3>
+
+
+新浪微博
+                            </h3>
+                            <p>
+
+http://weibo.com/huazhipeixun
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://weibo.com/huazhipeixun
+
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+        </div><!-- /.row -->
+             <h4 class="page-header">
+推广帐号
+            </h4>
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-teal">
+                        <div class="inner">
+                            <h3>
+百度推广
+                            </h3>
+                            <p>
+http://cas.baidu.com/
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://www2.baidu.com/
+" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-teal">
+                        <div class="inner">
+                            <h3>
+谷歌推广
+                            </h3>
+                            <p>
+http://www.google.com.hk/
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="https://adwords.google.com.hk/
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                 <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-teal">
+                        <div class="inner">
+                            <h3>
+360推广
+                            </h3>
+                            <p>
+http://e.360.cn
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://e.360.cn
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+<div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-teal">
+                        <div class="inner">
+                            <h3>
+搜搜推广
+                            </h3>
+                            <p>
+https://tg.qq.com/
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="https://tg.qq.com/" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+              <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-teal">
+                        <div class="inner">
+                            <h3>
+搜狗推广
+
+                            </h3>
+                            <p>
+http://p4p.sogou.com/nologinCtrl.php
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_blank" href="http://p4p.sogou.com/nologinCtrl.php?actionMethod=toLogin
+" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+  <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-teal">
+                        <div class="inner">
+                            <h3>
+网易有道推广
+
+                            </h3>
+                            <p>
+
+http://a.youdao.com
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_blank" href="http://a.youdao.com"
+ class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+            </div><!-- /.row -->
+  <h4 class="page-header">
+微博
+
+            </h4>
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-light-blue">
+                        <div class="inner">
+                            <h3>
+新浪微博
+
+                            </h3>
+                            <p>
+http://weibo.com/huazhipeixun 
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://weibo.com/huazhipeixun 
+
+" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-light-blue">
+                        <div class="inner">
+                            <h3>
+腾讯微博
+
+                            </h3>
+                            <p>
+
+http://t.qq.com/huazhipeixun
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://t.qq.com/huazhipeixun
+
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-light-blue">
+                        <div class="inner">
+                            <h3>
+搜狐微博
+
+                            </h3>
+                            <p>
+http://huazhipeixun.t.sohu.com
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://huazhipeixun.t.sohu.com
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+              <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-light-blue">
+                        <div class="inner">
+                            <h3>
+
+网易微博
+
+                            </h3>
+                            <p>
+http://t.163.com/huazhipeixun 
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_blank" href="http://t.163.com/huazhipeixun 
+
+" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+            </div><!-- /.row -->
+
+ <h4 class="page-header">
+百度相关
+            </h4>
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-purple">
+                        <div class="inner">
+                            <h3>
+百度知道
+
+                            </h3>
+                            <p>
+http://www.baidu.com/
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://www.baidu.com/p/华智公务员3
+
+" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-purple">
+                        <div class="inner">
+                            <h3>
+百度文库
+
+                            </h3>
+                            <p>
+
+wenku.baidu.com
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://wenku.baidu.com
+
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-purple">
+                        <div class="inner">
+                            <h3>
+百度贴吧
+
+                            </h3>
+                            <p>
+
+http://tieba.baidu.com/
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://tieba.baidu.com/f?kw=%BB%AA%D6%C7&fr=fenter&prequery=%BB%AA%D6%C7%B0%C9
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+            </div><!-- /.row -->
+    <h4 class="page-header">
+分类信息网
+            </h4>
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>
+58同城
+
+                            </h3>
+                            <p>
+http://sh.58.com/gongwuyuanpeixun/
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://sh.58.com/gongwuyuanpeixun/
+
+" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>
+赶集网
+
+                            </h3>
+                            <p>
+http://sh.ganji.com/
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://sh.ganji.com/gongwuyuanpeixun/
+
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+             <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>
+114
+
+
+                            </h3>
+                            <p>
+
+http://sh.qu114.com/gongwuyuan/
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://sh.qu114.com/gongwuyuan/
+
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>      <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>
+百姓网
+
+                            </h3>
+                            <p>
+http://shanghai.baixing.com/
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://shanghai.baixing.com/jinengpeixun/m36138/
+" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+              <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>
+列表网
+
+
+                            </h3>
+                            <p>
+http://shanghai.liebiao.com/gwypx/
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_blank" href="http://shanghai.liebiao.com/gwypx/
+
+" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+  <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>
+51同城网
+
+
+                            </h3>
+                            <p>
+http://sh.qu114.com/gongwuyuan/
+
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_blank" href="http://sh.qu114.com/gongwuyuan/
+"
+ class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+            </div><!-- /.row -->
+
+  
+           <h4 class="page-header">
+代理平台
+            </h4>
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+培训通
+                            </h3>
+                            <p>
+http://sh.pxto.com.cn/User/Login.asp
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://sh.pxto.com.cn/User/Login.asp" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+             <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+厚学网
+                            </h3>
+                            <p>
+http://sh.houxue.com/kecheng70-0/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://sh.houxue.com/kecheng70-0/" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col --><div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+海青网
+                            </h3>
+                            <p>
+http://www.021xue.com/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://www.021xue.com/institution/witsun/" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col --><div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+育路网
+                            </h3>
+                            <p>
+http://sh.yuloo.com/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://sh.yuloo.com/" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col --><div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+搜学搜课网
+                            </h3>
+                            <p>
+http://www.soxsok.com/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://www.soxsok.com/" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col --> <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+神州教育网
+                            </h3>
+                            <p>
+http://16087.szpxe.com/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://16087.szpxe.com/" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->  <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+课后网
+                            </h3>
+                            <p>
+http://kecheng.kehou.com/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://login.kehou.com/login.action?redirectUrl=http%3A%2F%2Fmy.kehou.com%2Findex.action" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+求艺网
+                            </h3>
+                            <p>
+http://021.qeo.cn/71/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://021.qeo.cn/71/" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>
+搜课网
+
+                            </h3>
+                            <p>
+http://www.sooker.com/index.php
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://www.sooker.com/index.php?app=member&act=login&synlogout=1" target="_blank" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+            </div><!-- /.row -->
+           <h4 class="page-header">
+博客
+            </h4>
+
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>
+新浪
+                            </h3>
+                            <p>
+http://blog.sina.com.cn/u/2661934277
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://blog.sina.com.cn/u/2661934277" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>
+新浪时政
+                            </h3>
+                            <p>
+http://blog.sina.com.cn/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://blog.sina.com.cn/huazhishishizhengzhi" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>
+搜狐
+                            </h3>
+                            <p>
+http://witsunwitsun.blog.sohu.com/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://witsunwitsun.blog.sohu.com/" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>
+腾讯空间
+                            </h3>
+                            <p>
+http://user.qzone.qq.com/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://user.qzone.qq.com/2507825887/main" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>
+百度空间
+                            </h3>
+                            <p>
+http://hi.baidu.com/witsun2012
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://hi.baidu.com/witsun2012" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>
+网易
+                            </h3>
+                            <p>
+http://blog.163.com/witsun88_/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_black" href="http://blog.163.com/witsun88_/" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+</div>
+ 
+           <h4 class="page-header">
+QQ群
+            </h4>
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>
+上考
+                            </h3>
+                            <p>
+23157700
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                                            </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>
+国考
+                            </h3>
+
+
+                            <p>
+30208648
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="#" target="_blank" class="small-box-footer">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>
+事业单位
+                            </h3>
+                            <p>
+243729024
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>
+
+考警
+                            </h3>
+                            <p>
+21700084
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+            </div><!-- /.row -->
+            <h4 class="page-header">
+论坛
+
+            </h4>
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-gray">
+                        <div class="inner">
+                            <h3>
+巨智论坛
+
+
+                            </h3>
+                            <p>
+
+bbs.juzhi.cn
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_blank" href="http://bbs.wittop.net/forum.php
+ 
+" class="small-box-footer">
+                         More info    <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                                            </div>
+                </div><!-- ./col -->
+</div><!-- ./row -->
+           <h4 class="page-header">
+社区
+            </h4>
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-maroon">
+                        <div class="inner">
+                            <h3>
+人人网
+
+                            </h3>
+                            <p>
+www.renren.com/witsun 
+
+
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a target="_blank" href="http://www.renren.com/witsun 
+" class="small-box-footer">
+                         More info    <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                                            </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-maroon">
+                        <div class="inner">
+                            <h3>
+开心网
+
+                            </h3>
+
+
+                            <p>
+http://www.kaixin001.com/
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion "></i>
+                        </div>
+                        <a href="http://www.kaixin001.com/witsun_801139
+" target="_blank" class="small-box-footer">
+                          More info   <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div><!-- ./col -->
+</div><!-- ./row -->
+ 
+            </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+
+
+        <!-- jQuery 2.0.2 -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- AdminLTE App -->
+        <script src="../js/AdminLTE/app.js" type="text/javascript"></script>
+
+    </body>
+</html>
