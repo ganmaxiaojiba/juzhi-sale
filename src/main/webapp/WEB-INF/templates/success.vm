@@ -1,0 +1,17 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+</head>
+<body>
+#include ("header.vm")
+
+<ul>
+  #foreach( $t in $test )
+    <li>$t.name</li>
+  #end
+</ul>
+
+</body>
+</html>
