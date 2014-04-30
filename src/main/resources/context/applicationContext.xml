@@ -14,13 +14,4 @@
 
     <bean id="hello" class="com.juzhi.sale.entity.Hello"/>
 
-
-    <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/juzhi_sale"/>
-        <property name="username" value="root"/>
-        <property name="password" value="juzhi123"/>
-    </bean>
 </beans>

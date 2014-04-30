@@ -9,7 +9,10 @@ repositories {
 }
 
 jettyRun {
-    URIEncoding = 'utf-8'
+    httpPort = 8080
+    reload = 'automatic'
+    scanIntervalSeconds = 2
+    daemon = false
 }
 
 ext {
@@ -19,8 +22,8 @@ ext {
 project(':'){
     idea {
             project {
-                jdkName = JavaVersion.VERSION_1_6
-                languageLevel = JavaVersion.VERSION_1_6
+                jdkName = JavaVersion.VERSION_1_7
+                languageLevel = JavaVersion.VERSION_1_7
 
                 ipr.withXml { xml ->
                     def mapping = xml.node.component.find { it.@name == "VcsDirectoryMappings" }.mapping
