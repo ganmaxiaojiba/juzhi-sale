@@ -6,4 +6,8 @@
 			">
 
     <bean id="channelController" class="com.juzhi.sale.controller.ChannelController"/>
+
+    <bean id="channelTagController" class="com.juzhi.sale.controller.ChannelTagController"/>
+
+    <bean id="districtController" class="com.juzhi.sale.controller.DistrictController"/>
 </beans>

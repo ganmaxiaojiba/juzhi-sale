@@ -10,6 +10,8 @@ public class Tag {
     private String link;
     private int click_rate;
 
+    public Tag(){}
+
     public Tag(int click_rate, int t_id, String tname, String description, String link) {
         this.click_rate = click_rate;
         this.t_id = t_id;

@@ -9,4 +9,8 @@
 
     <bean id="channelDao" class="com.juzhi.sale.dao.ChannelDaoImpl" />
 
+    <bean id="channelTagDao" class="com.juzhi.sale.dao.ChannelTagDaoImpl"/>
+
+    <bean id="districtDao" class="com.juzhi.sale.dao.DistrictDaoImpl"/>
+
 </beans>

@@ -12,6 +12,11 @@
     <li>$t.name</li>
   #end
 </ul>
+<hr/>
+<ul>
+  #forearch($c in $channel)
+  <li>$c</li>
+</ul>
 
 </body>
 </html>
