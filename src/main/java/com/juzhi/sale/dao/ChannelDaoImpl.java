@@ -15,12 +15,15 @@ public class ChannelDaoImpl implements ChannelDao {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private DistrictDao districtDao;
+
     public ChannelDaoImpl() {
 
     }
 
     @Override
-    public void saveChannel(Channel channel) {
+    public void saveChannel(Channel channel,String dname) {
         String sql = "insert into db_channel(cname) values (?)";
         Connection connection = null;
 
@@ -34,6 +37,30 @@ public class ChannelDaoImpl implements ChannelDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
+            if (null != connection) try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        int cid = findIdByChannelName(channel.getCname());
+        int did = districtDao.findIdByDistrictName(dname);
+
+        sql = "insert into db_d_c_relation(d_id, c_id) value (?,?)";
+
+        try {
+            connection =dataSource.getConnection();
+            PreparedStatement prep = connection.prepareStatement(sql);
+
+            prep.setInt(1,did);
+            prep.setInt(2,cid);
+
+            prep.executeUpdate();
+            prep.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
             if (null != connection) try {
                 connection.close();
             } catch (SQLException e) {

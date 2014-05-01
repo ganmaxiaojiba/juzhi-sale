@@ -8,7 +8,7 @@ import java.util.List;
  * Created by xjwan on 4/30/14.
  */
 public interface ChannelDao {
-    public void saveChannel(Channel channel);
+    public void saveChannel(Channel channel,String dname);
 
     public int findIdByChannelName(String channelName);
 

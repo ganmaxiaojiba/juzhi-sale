@@ -4,15 +4,13 @@ import com.juzhi.sale.dao.ChannelDao;
 import com.juzhi.sale.dao.ChannelTagDao;
 import com.juzhi.sale.entity.Channel;
 import com.juzhi.sale.entity.Tag;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
 
 /**
@@ -34,13 +32,31 @@ public class ChannelTagController {
     }
 
     @RequestMapping(value = "/bin/add/tag/{channelName}", method = RequestMethod.GET)
-    public String saveTag(@PathVariable String channelName,Model model) {
-        Tag tag = new Tag();
-        tag.setTname("百度推广1000");
-        tag.setDescription("baidu nice");
-        tag.setLink("http://www.baidu.com");
-        channelTagDao.saveTag(tag, "abc");
+    public String redirectToAddTagPage(@PathVariable String channelName,Model model) {
+//        Tag tag = new Tag();
+//        tag.setTname("百度推广1000");
+//        tag.setDescription("baidu nice");
+//        tag.setLink("http://www.baidu.com");
+//        channelTagDao.saveTag(tag, "abc");
+
         return "addtag";
+    }
+
+    @RequestMapping(value="/bin/add/tag/new", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView save(@RequestBody String jsonString,Model model) {
+        JSONArray array = JSONArray.fromObject(jsonString);
+        Object[] obj = new Object[array.size()];
+        for (int i=0; i<array.size(); i++){
+            JSONObject jsonObject = array.getJSONObject(i);
+            Tag tag = new Tag();
+            tag.setTname(jsonObject.getString("tagName"));
+            tag.setLink(jsonObject.getString("tagLink"));
+            tag.setDescription(jsonObject.getString("tagDesc"));
+            channelTagDao.saveTag(tag, jsonObject.getString("channelName"));
+        }
+
+        return new ModelAndView("success");
     }
 
     @RequestMapping(value = "/bin/channeltag/search",method = RequestMethod.GET)

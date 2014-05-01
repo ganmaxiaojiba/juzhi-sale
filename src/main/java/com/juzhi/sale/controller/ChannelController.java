@@ -1,8 +1,12 @@
 package com.juzhi.sale.controller;
 
 import com.juzhi.sale.dao.ChannelDao;
+import com.juzhi.sale.dao.DistrictDao;
 import com.juzhi.sale.entity.Channel;
+import com.juzhi.sale.entity.District;
 import com.juzhi.sale.entity.Tag;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
@@ -21,14 +25,17 @@ public class ChannelController {
     @Autowired
     private ChannelDao channelDao;
 
+    @Autowired
+    private DistrictDao districtDao;
 
-    @RequestMapping(value = "/bin/channel/save", method = RequestMethod.GET)
-    public String saveChannel() {
-        Channel channel = new Channel();
-        channel.setCname("baidu");
-        channelDao.saveChannel(channel);
-        return "channel";
-    }
+
+//    @RequestMapping(value = "/bin/channel/save", method = RequestMethod.GET)
+//    public String saveChannel() {
+//        Channel channel = new Channel();
+//        channel.setCname("baidu");
+//        channelDao.saveChannel(channel);
+//        return "channel";
+//    }
 
     @RequestMapping(value = "/bin/channel/search", method = RequestMethod.GET)
     public ModelAndView searchChannel(Model model) {
@@ -65,6 +72,38 @@ public class ChannelController {
         String id =  Integer.toString(channelDao.findIdByChannelName(channelName));
 
         return id;
+    }
+
+    @RequestMapping(value = "/bin/add/channel", method = RequestMethod.GET)
+    public ModelAndView selectDistrict(Model model) {
+        List<District> list = districtDao.findDistrict();
+        model.addAttribute("districtList",list);
+        return new ModelAndView("selectdistrict");
+    }
+
+    @RequestMapping(value = "/bin/add/tag/{districtName}", method = RequestMethod.GET)
+    public String redirectToAddChannelPage(@PathVariable String districtName,Model model) {
+//        Tag tag = new Tag();
+//        tag.setTname("百度推广1000");
+//        tag.setDescription("baidu nice");
+//        tag.setLink("http://www.baidu.com");
+//        channelTagDao.saveTag(tag, "abc");
+
+        return "addchannel";
+    }
+
+    @RequestMapping(value="/bin/add/channel/new", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView save(@RequestBody String jsonString,Model model) {
+        JSONArray array = JSONArray.fromObject(jsonString);
+        Object[] obj = new Object[array.size()];
+        for (int i=0; i<array.size(); i++){
+            JSONObject jsonObject = array.getJSONObject(i);
+            Channel channel = new Channel();
+            channel.setCname(jsonObject.getString("channelName"));
+            channelDao.saveChannel(channel, jsonObject.getString("channelName"));
+        }
+        return new ModelAndView("success");
     }
 
 }

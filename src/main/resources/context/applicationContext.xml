@@ -10,4 +10,17 @@
     <bean id="channel" class="com.juzhi.sale.entity.Channel"/>
 
     <bean id="tag" class="com.juzhi.sale.entity.Tag"/>
+
+
+
+
+    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+
 </beans>
