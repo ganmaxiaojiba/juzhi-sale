@@ -15,8 +15,8 @@ public class DistrictController {
     @Autowired
     private DistrictDao districtDao;
 
-    @RequestMapping(value = "/bin/district/save",method = RequestMethod.GET)
-    public String saveDistrict(){
+    @RequestMapping(value = "/bin/district/save", method = RequestMethod.GET)
+    public String saveDistrict() {
         District district = new District();
         district.setDname("上海");
         district.setDescription("上海是一个很好的平台");

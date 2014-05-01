@@ -13,10 +13,33 @@
   #end
 </ul>
 <hr/>
+
+
 <ul>
-  #forearch($c in $channel)
-  <li>$c</li>
+  #foreach( $channel in $channelList )
+    <li>$channel.cid | $channel.cname</li>
+  #end
 </ul>
 
+<hr/>
+<ul>
+  #foreach( $districtchannelrel in $districtchannelrelList )
+    <li>$districtchannelrel.did | $districtchannelrel.cid</li>
+  #end
+</ul>
+
+<hr/>
+<ul>
+  #foreach( $tagrelation in $tagrelationList )
+    <li>$tagrelation.cid | $tagrelation.tid</li>
+  #end
+</ul>
+
+<hr/>
+<ul>
+  #foreach( $channeltag in $channeltagList )
+    <li>$channeltag.tname | $channeltag.description | $channeltag.link | $channeltag.click_rate</li>
+  #end
+</ul>
 </body>
 </html>

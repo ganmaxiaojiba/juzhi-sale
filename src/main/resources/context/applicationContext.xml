@@ -5,4 +5,9 @@
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 			">
 
+    <bean id="district" class="com.juzhi.sale.entity.District"/>
+
+    <bean id="channel" class="com.juzhi.sale.entity.Channel"/>
+
+    <bean id="tag" class="com.juzhi.sale.entity.Tag"/>
 </beans>

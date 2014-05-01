@@ -2,12 +2,14 @@ package com.juzhi.sale.controller;
 
 import com.juzhi.sale.dao.ChannelDao;
 import com.juzhi.sale.entity.Channel;
+import com.juzhi.sale.entity.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,10 +31,40 @@ public class ChannelController {
     }
 
     @RequestMapping(value = "/bin/channel/search", method = RequestMethod.GET)
-    public ModelAndView searchChannel(Model model){
-        String name = "shanghai";
+    public ModelAndView searchChannel(Model model) {
+        String name = "上海";
+
         List list = channelDao.findChannelByDistrict(name);
-        model.addAttribute("channel",list);
+
+        model.addAttribute("channelList", list);
+
         return new ModelAndView("success");
     }
+
+    @RequestMapping("/bin/view/channel/{channelName}")
+    @ResponseBody
+    public String viewTagsByChannelName(@PathVariable String channelName, Model model) {
+
+//        List<Tag> tagList = new ArrayList<Tag>();
+//        tagList.add(new Tag(1, "sina", "hello,sina", "http://www.sina.com", 10));
+//
+//        tagList.add(new Tag(1, "sina", "hello,sina", "http://www.sina.com", 10));
+//
+//        tagList.add(new Tag(1, "sina", "hello,sina", "http://www.sina.com", 10));
+//
+//        tagList.add(new Tag(1, "sina", "hello,sina", "http://www.sina.com", 10));
+//
+//
+//        model.addAttribute("channelName", channelName);
+//        model.addAttribute("tagList", tagList);
+//
+//
+//        return new ModelAndView("channel");
+
+
+        String id =  Integer.toString(channelDao.findIdByChannelName(channelName));
+
+        return id;
+    }
+
 }

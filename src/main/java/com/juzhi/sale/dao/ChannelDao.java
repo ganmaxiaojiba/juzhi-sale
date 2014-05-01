@@ -9,5 +9,10 @@ import java.util.List;
  */
 public interface ChannelDao {
     public void saveChannel(Channel channel);
+
+    public int findIdByChannelName(String channelName);
+
+    public List<Channel> findChannel();
+
     public List<Channel> findChannelByDistrict(String dname);
 }

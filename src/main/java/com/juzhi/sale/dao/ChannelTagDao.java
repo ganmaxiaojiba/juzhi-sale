@@ -1,6 +1,6 @@
 package com.juzhi.sale.dao;
 
-import com.juzhi.sale.entity.*;
+import com.juzhi.sale.entity.Tag;
 
 import java.util.List;
 
@@ -9,6 +9,12 @@ import java.util.List;
  */
 
 public interface ChannelTagDao {
-    public void insertTag(Tag tag);
-    public List<Tag> findTagByChannel(String cname);
+    public void insertTag(Tag tag, String channelName);
+
+    public void saveTag( Tag tag, String cname);
+
+    public List<Tag> findTagByName(String tname);
+
+
+    public int findIdByChannelTagName(String channelTagName);
 }

@@ -13,6 +13,7 @@ jettyRun {
     reload = 'automatic'
     scanIntervalSeconds = 2
     daemon = false
+    contextPath=''
 }
 
 ext {

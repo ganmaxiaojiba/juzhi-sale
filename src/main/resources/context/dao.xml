@@ -13,4 +13,8 @@
 
     <bean id="districtDao" class="com.juzhi.sale.dao.DistrictDaoImpl"/>
 
+    <bean id="districtChannelRelDao" class="com.juzhi.sale.dao.DistrictChannelRelDaoImpl"/>
+
+    <bean id="channelTagRelDao" class="com.juzhi.sale.dao.ChannelTagRelDaoImpl"/>
+
 </beans>

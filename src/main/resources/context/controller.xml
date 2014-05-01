@@ -10,4 +10,8 @@
     <bean id="channelTagController" class="com.juzhi.sale.controller.ChannelTagController"/>
 
     <bean id="districtController" class="com.juzhi.sale.controller.DistrictController"/>
+
+    <bean id="districtChannelRelController" class="com.juzhi.sale.controller.DistrictChannelRelController"/>
+
+    <bean id="channelTagRelController" class="com.juzhi.sale.controller.ChannelTagRelController"/>
 </beans>
