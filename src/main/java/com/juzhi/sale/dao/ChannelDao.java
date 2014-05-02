@@ -17,4 +17,6 @@ public interface ChannelDao {
     public List<Channel> findChannelByDistrict(String dname);
 
     public List<Channel> findChannelsByDistrictId(int did);
+
+    public void deleteChannelByDistrictIdAndChannelId(int did, int cid);
 }

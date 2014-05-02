@@ -137,4 +137,14 @@ public class ChannelController {
         }
         return channels.toString();
     }
+
+    @RequestMapping("/market/delete/channel/{did}/{cid}")
+    @ResponseBody
+    public String deleteChannel(@PathVariable int did, @PathVariable int cid) {
+
+        channelDao.deleteChannelByDistrictIdAndChannelId(did, cid);
+
+
+        return "";
+    }
 }

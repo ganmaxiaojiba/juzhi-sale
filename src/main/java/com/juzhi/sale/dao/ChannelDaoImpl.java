@@ -209,4 +209,33 @@ public class ChannelDaoImpl implements ChannelDao {
         return channelList;
     }
 
+    @Override
+    public void deleteChannelByDistrictIdAndChannelId(int did, int cid) {
+
+        String sql = "delete from db_d_c_relation where d_id="+did+" and c_id="+cid;
+
+        Connection conn = null;
+        try {
+            conn = dataSource.getConnection();
+            PreparedStatement prep = conn.prepareStatement(sql);
+//            prep.setInt(1, did);
+//            prep.setInt(2, cid);
+
+            prep.executeUpdate(sql);
+
+
+            prep.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (null != conn) try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
+
 }

@@ -59,7 +59,7 @@
 </div>
 
 <h4 class="page-header">
-    操作
+    添加操作
 </h4>
 <!-- Small boxes (Stat box) -->
 <div class="row">
@@ -130,6 +130,82 @@
 
 </div>
 <!-- /.row -->
+
+
+<h4 class="page-header">
+    删除操作
+</h4>
+<!-- Small boxes (Stat box) -->
+<div class="row">
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>
+                    删除地区
+                </h3>
+
+                <p>
+                     删除地区
+                </p>
+            </div>
+            <div class="icon">
+                <i class="ion "></i>
+            </div>
+            <a href="/market/add/district" class="small-box-footer">
+                <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>
+                    删除渠道
+                </h3>
+
+
+                <p>
+                     删除渠道
+                </p>
+            </div>
+            <div class="icon">
+                <i class="ion "></i>
+            </div>
+            <a href="/market/add/channel" class="small-box-footer">
+                <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>
+                    删除标签
+                </h3>
+
+                <p>
+                       删除标签
+                </p>
+            </div>
+            <div class="icon">
+                <i class="ion "></i>
+            </div>
+            <a href="/market/add/tag" class="small-box-footer">
+                <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <!-- ./col -->
+
+</div>
+<!-- /.row -->
+
+
 
 
 </section>
