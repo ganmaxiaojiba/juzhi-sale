@@ -4,6 +4,7 @@ import com.juzhi.sale.dao.ChannelDao;
 import com.juzhi.sale.dao.DistrictDao;
 import com.juzhi.sale.entity.Channel;
 import com.juzhi.sale.entity.District;
+import com.juzhi.sale.entity.DistrictChannelWrapper;
 import com.juzhi.sale.entity.Tag;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,52 +95,28 @@ public class ChannelController {
 
     @RequestMapping(value="/bin/add/channel/new", method = RequestMethod.POST)
     @ResponseBody
-    public ModelAndView save(@RequestBody String jsonString,Model model) {
+    public String save(@RequestBody String jsonString) {
 
-        class DistrictChannelWrapper{
-            private String channelName;
-            private String districtName;
-
-            public String getDistrictName() {
-                return districtName;
-            }
-
-            public void setDistrictName(String districtName) {
-                this.districtName = districtName;
-            }
-
-            public String getChannelName() {
-                return channelName;
-            }
-
-            public void setChannelName(String channelName) {
-                this.channelName = channelName;
-            }
-        }
+        StringBuilder msg = new StringBuilder();
 
         ObjectMapper mapper = new ObjectMapper();
 
         try {
             DistrictChannelWrapper wrapper = mapper.readValue(jsonString, DistrictChannelWrapper.class);
-
-
+            Channel channel = new Channel();
+            channel.setCname(wrapper.getChannelName());
+            channelDao.saveChannel(channel,wrapper.getDistrictName());
 
         } catch (IOException e) {
             e.printStackTrace();
+
+            msg.append("Add channel fail!");
+            return msg.toString();
         }
 
+        msg.append("Add channel success!");
 
-//        JSONArray array = JSONArray.fromObject(jsonString);
-//        Object[] obj = new Object[array.size()];
-//        for (int i=0; i<array.size(); i++){
-//            JSONObject jsonObject = array.getJSONObject(i);
-//           String districtName =  jsonObject.getString("districtName");
-//            String channelName =  jsonObject.getString("channelName");
-//            Channel channel = new Channel();
-//            channel.setCname(jsonObject.getString("channelName"));
-//            channelDao.saveChannel(channel, jsonObject.getString("channelName"));
-//        }
-        return new ModelAndView("success");
+        return msg.toString();
     }
 
 }
