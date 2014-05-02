@@ -118,47 +118,43 @@ public class ChannelTagController {
     }
 
     @RequestMapping(value = "/bin/add/success", method = RequestMethod.GET)
-    public ModelAndView addSuccess(String msg,Model model){
-       //StringBuilder msg = new StringBuilder();
+    public ModelAndView addSuccess(String msg, Model model) {
+        //StringBuilder msg = new StringBuilder();
 
-        model.addAttribute("msg",msg);
+        model.addAttribute("msg", msg);
         return new ModelAndView("success");
     }
 
     @RequestMapping("/bin/view/channel/tags")
     @ResponseBody
-    public String findAllTagsByCId(Model model){
-       // Map<Channel,Tag> map = new HashMap<>();
+    public String findAllTagsByCId(Model model) {
+        // Map<Channel,Tag> map = new HashMap<>();
         //List<Tag> tagList = new ArrayList<Tag>();
         List<Tag> tagList = channelTagDao.findTagsByChannelId(1);
 
         StringBuilder tags = new StringBuilder();
 
-        for( Tag tag : tagList) {
+        for (Tag tag : tagList) {
             tags.append(tag.getTname());
         }
         return tags.toString();
     }
 
-    @RequestMapping(value = "/bin/view", method = RequestMethod.GET)
-    @ResponseBody
-    public String findAll(Model model){
-        //Map<Channel,Tag> map = new HashMap<>();
-        StringBuilder tags = new StringBuilder();
+    @RequestMapping(value = "/market/view/shanghai", method = RequestMethod.GET)
+    public ModelAndView findAll(Model model) {
+        Map<String, List<Tag>> map = new HashMap<String, List<Tag>>();
+        String cname = null;
 
         int did = districtDao.findIdByDistrictName("上海");
         List<Channel> channelList = channelDao.findChannelsByDistrictId(did);
-        for (Channel channel : channelList){
-            String cname =channel.getCname();
+        for (Channel channel : channelList) {
+            cname = channel.getCname();
             int cid = channelDao.findIdByChannelName(cname);
             List<Tag> tagList = channelTagDao.findTagsByChannelId(cid);
-            for( Tag tag : tagList) {
-                tags.append(tag.getTname());
-            }
+            map.put(cname, tagList);
         }
-
-
-
-        return tags.toString();
+        model.addAttribute("map", map);
+        model.addAttribute("channelList", channelList);
+        return new ModelAndView("district");
     }
 }
