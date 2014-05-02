@@ -63,4 +63,11 @@ public class DistrictController {
 
         return msg.toString();
     }
+
+    @RequestMapping(value = "/market/",method = RequestMethod.GET)
+    public ModelAndView findDistrict(Model model){
+        List<District> districtList = districtDao.findDistrict();
+        model.addAttribute("districtList",districtList);
+        return new ModelAndView("market");
+    }
 }

@@ -33,16 +33,17 @@
 
 <!-- Small boxes (Stat box) -->
 <div class="row">
+#foreach($district in $districtList)
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
                 <h3>
-                    上海
+                    $district.dname
                 </h3>
 
                 <p>
-                    上海
+                    $district.description
                 </p>
             </div>
             <div class="icon">
@@ -54,29 +55,7 @@
         </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-red">
-            <div class="inner">
-                <h3>
-                    合肥
-                </h3>
-
-                <p>
-                    合肥
-                </p>
-            </div>
-            <div class="icon">
-                <i class="ion "></i>
-            </div>
-            <a target="_black" href="/market/view/hefei" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-            </a>
-        </div>
-    </div>
-
-
-
+#end
 </div>
 
 <h4 class="page-header">

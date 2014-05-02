@@ -43,5 +43,12 @@
 </ul>
 
 $msg
+
+<hr/>
+<ul>
+  #foreach( $district in $districtList )
+    <li>$district.dname | $district.description</li>
+  #end
+</ul>
 </body>
 </html>
