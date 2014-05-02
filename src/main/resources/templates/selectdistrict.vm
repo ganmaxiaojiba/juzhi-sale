@@ -5,7 +5,7 @@
         <header class="header">
             <a href="../../index.html" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                巨智网络营销统一平台
+                巨智综合服务平台
             </a>
             #include("top.vm")
         </header>
