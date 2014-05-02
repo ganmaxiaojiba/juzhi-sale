@@ -41,5 +41,7 @@
     <li>$channeltag.tname | $channeltag.description | $channeltag.link | $channeltag.click_rate</li>
   #end
 </ul>
+
+$msg
 </body>
 </html>

@@ -52,7 +52,6 @@ dependencies {
             'org.springframework:spring-jdbc:4.0.3.RELEASE',
             'log4j:log4j:1.2.17',
             'org.codehaus.jackson:jackson-mapper-asl:1.9.13',
-            'net.sf.spring-json:spring-json:1.3.1'
 
 
 

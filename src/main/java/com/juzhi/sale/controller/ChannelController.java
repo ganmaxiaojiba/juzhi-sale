@@ -5,14 +5,14 @@ import com.juzhi.sale.dao.DistrictDao;
 import com.juzhi.sale.entity.Channel;
 import com.juzhi.sale.entity.District;
 import com.juzhi.sale.entity.Tag;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +81,7 @@ public class ChannelController {
         return new ModelAndView("selectdistrict");
     }
 
-    @RequestMapping(value = "/bin/add/tag/{districtName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/bin/add/channel/{districtName}", method = RequestMethod.GET)
     public String redirectToAddChannelPage(@PathVariable String districtName,Model model) {
 //        Tag tag = new Tag();
 //        tag.setTname("百度推广1000");
@@ -95,14 +95,50 @@ public class ChannelController {
     @RequestMapping(value="/bin/add/channel/new", method = RequestMethod.POST)
     @ResponseBody
     public ModelAndView save(@RequestBody String jsonString,Model model) {
-        JSONArray array = JSONArray.fromObject(jsonString);
-        Object[] obj = new Object[array.size()];
-        for (int i=0; i<array.size(); i++){
-            JSONObject jsonObject = array.getJSONObject(i);
-            Channel channel = new Channel();
-            channel.setCname(jsonObject.getString("channelName"));
-            channelDao.saveChannel(channel, jsonObject.getString("channelName"));
+
+        class DistrictChannelWrapper{
+            private String channelName;
+            private String districtName;
+
+            public String getDistrictName() {
+                return districtName;
+            }
+
+            public void setDistrictName(String districtName) {
+                this.districtName = districtName;
+            }
+
+            public String getChannelName() {
+                return channelName;
+            }
+
+            public void setChannelName(String channelName) {
+                this.channelName = channelName;
+            }
         }
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            DistrictChannelWrapper wrapper = mapper.readValue(jsonString, DistrictChannelWrapper.class);
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+//        JSONArray array = JSONArray.fromObject(jsonString);
+//        Object[] obj = new Object[array.size()];
+//        for (int i=0; i<array.size(); i++){
+//            JSONObject jsonObject = array.getJSONObject(i);
+//           String districtName =  jsonObject.getString("districtName");
+//            String channelName =  jsonObject.getString("channelName");
+//            Channel channel = new Channel();
+//            channel.setCname(jsonObject.getString("channelName"));
+//            channelDao.saveChannel(channel, jsonObject.getString("channelName"));
+//        }
         return new ModelAndView("success");
     }
 
