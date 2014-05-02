@@ -159,5 +159,51 @@ public class ChannelTagDaoImpl implements ChannelTagDao {
 
     }
 
+    @Override
+    public List<Tag> findTagsByChannelId(int cid) {
+        String sql = "SELECT * " +
+                "FROM db_tag t " +
+                "WHERE t.t_id " +
+                "IN ( " +
+                "SELECT r.t_id " +
+                "FROM db_c_t_relation r  " +
+                "WHERE r.c_id="+cid+")";
+
+        Connection conn = null;
+        List tagList = new ArrayList<Tag>();
+        try {
+            conn = dataSource.getConnection();
+            PreparedStatement prep = conn.prepareStatement(sql);
+// QUESTION: why don't use '?'
+//            prep.setInt(1, cid);
+
+            ResultSet rs = prep.executeQuery(sql);
+
+            while (rs.next()) {
+                Tag tag = new Tag();
+
+                tag.settid(rs.getInt(1));
+                tag.setTname(rs.getString(2));
+                tag.setDescription(rs.getString(3));
+                tag.setLink(rs.getString(4));
+                tag.setClick_rate(rs.getInt(5));
+
+                tagList.add(tag);
+            }
+
+            rs.close();
+            prep.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (null != conn) try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return tagList;
+    }
 
 }

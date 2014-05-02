@@ -167,19 +167,17 @@ public class ChannelDaoImpl implements ChannelDao {
     }
 
     @Override
-    public List<Tag> findTagsByChannelId(int cid) {
-
-
+    public List<Channel> findChannelsByDistrictId(int did) {
         String sql = "SELECT * " +
-                "FROM db_tag t " +
-                "WHERE t.t_id " +
+                "FROM db_channel c " +
+                "WHERE c.c_id " +
                 "IN ( " +
-                "SELECT r.t_id " +
-                "FROM db_c_t_relation r  " +
-                "WHERE r.c_id="+cid+")";
+                "SELECT r.c_id " +
+                "FROM db_d_c_relation r  " +
+                "WHERE r.d_id="+did+")";
 
         Connection conn = null;
-        List tagList = new ArrayList<Tag>();
+        List channelList = new ArrayList<Channel>();
         try {
             conn = dataSource.getConnection();
             PreparedStatement prep = conn.prepareStatement(sql);
@@ -189,15 +187,12 @@ public class ChannelDaoImpl implements ChannelDao {
             ResultSet rs = prep.executeQuery(sql);
 
             while (rs.next()) {
-                Tag tag = new Tag();
+                Channel channel = new Channel();
 
-                tag.settid(rs.getInt(1));
-                tag.setTname(rs.getString(2));
-                tag.setDescription(rs.getString(3));
-                tag.setLink(rs.getString(4));
-                tag.setClick_rate(rs.getInt(5));
+                channel.setCid(rs.getInt(1));
+                channel.setCname(rs.getString(2));
 
-                tagList.add(tag);
+                channelList.add(channel);
             }
 
             rs.close();
@@ -211,7 +206,7 @@ public class ChannelDaoImpl implements ChannelDao {
                 e.printStackTrace();
             }
         }
-
-        return tagList;
+        return channelList;
     }
+
 }

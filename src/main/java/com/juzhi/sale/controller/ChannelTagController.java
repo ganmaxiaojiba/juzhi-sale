@@ -2,6 +2,7 @@ package com.juzhi.sale.controller;
 
 import com.juzhi.sale.dao.ChannelDao;
 import com.juzhi.sale.dao.ChannelTagDao;
+import com.juzhi.sale.dao.DistrictDao;
 import com.juzhi.sale.entity.Channel;
 import com.juzhi.sale.entity.ChannelTagWrapper;
 import com.juzhi.sale.entity.Tag;
@@ -14,8 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xjwan on 4/30/14.
@@ -28,14 +30,17 @@ public class ChannelTagController {
     @Autowired
     private ChannelDao channelDao;
 
-    @RequestMapping(value = "/bin/add/tag", method = RequestMethod.GET)
+    @Autowired
+    private DistrictDao districtDao;
+
+    @RequestMapping(value = "/market/add/tag", method = RequestMethod.GET)
     public ModelAndView selectChannel(Model model) {
         List<Channel> list = channelDao.findChannel();
         model.addAttribute("channelList", list);
         return new ModelAndView("selectchannel");
     }
 
-    @RequestMapping(value = "/bin/add/tag/{channelName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/market/add/tag/{channelName}", method = RequestMethod.GET)
     public String redirectToAddTagPage(@PathVariable String channelName, Model model) {
 //        Tag tag = new Tag();
 //        tag.setTname("百度推广1000");
@@ -46,7 +51,7 @@ public class ChannelTagController {
         return "addtag";
     }
 
-    @RequestMapping(value = "/bin/add/tag/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/market/add/tag/done", method = RequestMethod.POST)
     @ResponseBody
     public String save(@RequestBody String jsonString, HttpServletResponse response) {
 
@@ -118,5 +123,42 @@ public class ChannelTagController {
 
         model.addAttribute("msg",msg);
         return new ModelAndView("success");
+    }
+
+    @RequestMapping("/bin/view/channel/tags")
+    @ResponseBody
+    public String findAllTagsByCId(Model model){
+       // Map<Channel,Tag> map = new HashMap<>();
+        //List<Tag> tagList = new ArrayList<Tag>();
+        List<Tag> tagList = channelTagDao.findTagsByChannelId(1);
+
+        StringBuilder tags = new StringBuilder();
+
+        for( Tag tag : tagList) {
+            tags.append(tag.getTname());
+        }
+        return tags.toString();
+    }
+
+    @RequestMapping(value = "/bin/view", method = RequestMethod.GET)
+    @ResponseBody
+    public String findAll(Model model){
+        //Map<Channel,Tag> map = new HashMap<>();
+        StringBuilder tags = new StringBuilder();
+
+        int did = districtDao.findIdByDistrictName("上海");
+        List<Channel> channelList = channelDao.findChannelsByDistrictId(did);
+        for (Channel channel : channelList){
+            String cname =channel.getCname();
+            int cid = channelDao.findIdByChannelName(cname);
+            List<Tag> tagList = channelTagDao.findTagsByChannelId(cid);
+            for( Tag tag : tagList) {
+                tags.append(tag.getTname());
+            }
+        }
+
+
+
+        return tags.toString();
     }
 }

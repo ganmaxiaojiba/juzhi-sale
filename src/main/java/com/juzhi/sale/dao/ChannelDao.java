@@ -16,5 +16,5 @@ public interface ChannelDao {
 
     public List<Channel> findChannelByDistrict(String dname);
 
-    public List<Tag> findTagsByChannelId(int cid);
+    public List<Channel> findChannelsByDistrictId(int did);
 }

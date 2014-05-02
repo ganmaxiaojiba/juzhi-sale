@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,14 +77,14 @@ public class ChannelController {
         return id;
     }
 
-    @RequestMapping(value = "/bin/add/channel", method = RequestMethod.GET)
+    @RequestMapping(value = "/market/add/channel", method = RequestMethod.GET)
     public ModelAndView selectDistrict(Model model) {
         List<District> list = districtDao.findDistrict();
         model.addAttribute("districtList",list);
         return new ModelAndView("selectdistrict");
     }
 
-    @RequestMapping(value = "/bin/add/channel/{districtName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/market/add/channel/{districtName}", method = RequestMethod.GET)
     public String redirectToAddChannelPage(@PathVariable String districtName,Model model) {
 //        Tag tag = new Tag();
 //        tag.setTname("百度推广1000");
@@ -93,7 +95,7 @@ public class ChannelController {
         return "addchannel";
     }
 
-    @RequestMapping(value="/bin/add/channel/new", method = RequestMethod.POST)
+    @RequestMapping(value="/market/add/channel/done", method = RequestMethod.POST)
     @ResponseBody
     public String save(@RequestBody String jsonString) {
 
@@ -119,18 +121,20 @@ public class ChannelController {
         return msg.toString();
     }
 
-    @RequestMapping("/bin/view/channel/tags")
+    @RequestMapping("/bin/view/district/channels")
     @ResponseBody
-    public String findAllTagsByCId(){
+    public String findAllChannelsByDId(HttpServletResponse response){
+        response.setContentType("text/plain;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
+        List<Channel> channelList = channelDao.findChannelsByDistrictId(3);
 
-        List<Tag> tagList = channelDao.findTagsByChannelId(1);
+        StringBuilder channels = new StringBuilder();
 
-        StringBuilder tags = new StringBuilder();
-
-        for( Tag tag : tagList) {
-            tags.append(tag.getTname());
+        for( Channel channel : channelList) {
+            channels.append(channel.getCname());
+            System.out.println(channels.toString());
         }
-        return tags.toString();
+        return channels.toString();
     }
 }

@@ -17,4 +17,6 @@ public interface ChannelTagDao {
 
 
     public int findIdByChannelTagName(String channelTagName);
+
+    public List<Tag> findTagsByChannelId(int cid);
 }
