@@ -23,7 +23,7 @@ public class ChannelDaoImpl implements ChannelDao {
     }
 
     @Override
-    public void saveChannel(Channel channel,String dname) {
+    public void saveChannel(Channel channel, String dname) {
         String sql = "insert into db_channel(cname) values (?)";
         Connection connection = null;
 
@@ -50,17 +50,17 @@ public class ChannelDaoImpl implements ChannelDao {
         sql = "insert into db_d_c_relation(d_id, c_id) value (?,?)";
 
         try {
-            connection =dataSource.getConnection();
+            connection = dataSource.getConnection();
             PreparedStatement prep = connection.prepareStatement(sql);
 
-            prep.setInt(1,did);
-            prep.setInt(2,cid);
+            prep.setInt(1, did);
+            prep.setInt(2, cid);
 
             prep.executeUpdate();
             prep.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             if (null != connection) try {
                 connection.close();
             } catch (SQLException e) {
@@ -71,7 +71,7 @@ public class ChannelDaoImpl implements ChannelDao {
 
     @Override
     public int findIdByChannelName(String channelName) {
-        String sql = "select c_id from db_channel where cname = '"+channelName+"'";
+        String sql = "select c_id from db_channel where cname = '" + channelName + "'";
         Connection connection = null;
 
         List<Integer> ids = new ArrayList<Integer>();
@@ -164,5 +164,54 @@ public class ChannelDaoImpl implements ChannelDao {
             }
         }
         return list;
+    }
+
+    @Override
+    public List<Tag> findTagsByChannelId(int cid) {
+
+
+        String sql = "SELECT * " +
+                "FROM db_tag t " +
+                "WHERE t.t_id " +
+                "IN ( " +
+                "SELECT r.t_id " +
+                "FROM db_c_t_relation r  " +
+                "WHERE r.c_id="+cid+")";
+
+        Connection conn = null;
+        List tagList = new ArrayList<Tag>();
+        try {
+            conn = dataSource.getConnection();
+            PreparedStatement prep = conn.prepareStatement(sql);
+// QUESTION: why don't use '?'
+//            prep.setInt(1, cid);
+
+            ResultSet rs = prep.executeQuery(sql);
+
+            while (rs.next()) {
+                Tag tag = new Tag();
+
+                tag.settid(rs.getInt(1));
+                tag.setTname(rs.getString(2));
+                tag.setDescription(rs.getString(3));
+                tag.setLink(rs.getString(4));
+                tag.setClick_rate(rs.getInt(5));
+
+                tagList.add(tag);
+            }
+
+            rs.close();
+            prep.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (null != conn) try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return tagList;
     }
 }

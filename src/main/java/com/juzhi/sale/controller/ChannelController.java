@@ -119,4 +119,18 @@ public class ChannelController {
         return msg.toString();
     }
 
+    @RequestMapping("/bin/view/channel/tags")
+    @ResponseBody
+    public String findAllTagsByCId(){
+
+
+        List<Tag> tagList = channelDao.findTagsByChannelId(1);
+
+        StringBuilder tags = new StringBuilder();
+
+        for( Tag tag : tagList) {
+            tags.append(tag.getTname());
+        }
+        return tags.toString();
+    }
 }
