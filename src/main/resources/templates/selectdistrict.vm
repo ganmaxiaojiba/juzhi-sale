@@ -59,7 +59,7 @@
         $(document).ready(function(){
            $("#next").click(function(){
                      var dname = $( "#district option:selected" ).text();
-                     location.href="/bin/add/channel/"+dname;
+                     location.href="/market/add/channel/"+dname;
            });
         });
         </script>

@@ -59,7 +59,7 @@
         $(document).ready(function(){
            $("#next").click(function(){
                      var cname = $( "#channel option:selected" ).text();
-                     location.href="/bin/add/tag/"+cname;
+                     location.href="/market/add/tag/"+cname;
            });
         });
         </script>

@@ -12,7 +12,7 @@ public class IndexController {
 
     @RequestMapping("/")
     public String index() {
-        return "market";
+        return "index";
     }
 
 

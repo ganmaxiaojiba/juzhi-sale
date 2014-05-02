@@ -85,7 +85,7 @@
 
 
               $("#previous").click(function(){
-                                  location.href="/bin/add/tag/";
+                                  location.href="/market/add/tag/";
               });
 
          $("#save").click(function(){
@@ -110,7 +110,7 @@
                             "Content-Type": "text/plain; charset=utf-8"
                         },
                         type: "POST",
-                        url: "/bin/add/tag/new",
+                        url: "/market/add/tag/done",
                         data: data,
                         contentType: "application/json; charset=utf-8",
 

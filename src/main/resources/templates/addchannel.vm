@@ -75,7 +75,7 @@
 
 
               $("#previous").click(function(){
-                                  location.href="/bin/add/channel/";
+                                  location.href="/market/add/channel/";
               });
 
          $("#save").click(function(){
@@ -98,7 +98,7 @@
                         "Content-Type": "text/plain; charset=utf-8"
                     },
                         type: "POST",
-                        url: "/bin/add/channel/new",
+                        url: "/market/add/channel/done",
                         data: data,
                         contentType: "application/json; charset=utf-8",
                         dataType: "text",
