@@ -140,25 +140,5 @@ public class ChannelTagController {
         return tags.toString();
     }
 
-    @RequestMapping(value = "/market/view/{districtName}", method = RequestMethod.GET)
-    public ModelAndView findAll(@PathVariable String districtName, Model model) {
-        Map<String, List<Tag>> map = new HashMap<String, List<Tag>>();
-        String cname = null;
-        HashMap<String, String> districtMap = new HashMap<String, String>();
-        districtMap.put("shanghai", "上海");
-        districtMap.put("hefei", "合肥");
 
-        int did = districtDao.findIdByDistrictName(districtMap.get(districtName));
-
-        List<Channel> channelList = channelDao.findChannelsByDistrictId(did);
-        for (Channel channel : channelList) {
-            cname = channel.getCname();
-            int cid = channelDao.findIdByChannelName(cname);
-            List<Tag> tagList = channelTagDao.findTagsByChannelId(cid);
-            map.put(cname, tagList);
-        }
-        model.addAttribute("map", map);
-        model.addAttribute("channelList", channelList);
-        return new ModelAndView("district");
-    }
 }

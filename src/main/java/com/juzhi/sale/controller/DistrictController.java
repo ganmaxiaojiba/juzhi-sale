@@ -1,19 +1,22 @@
 package com.juzhi.sale.controller;
 
+import com.juzhi.sale.dao.ChannelDao;
+import com.juzhi.sale.dao.ChannelTagDao;
 import com.juzhi.sale.dao.DistrictDao;
+import com.juzhi.sale.entity.Channel;
 import com.juzhi.sale.entity.District;
+import com.juzhi.sale.entity.Tag;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xjwan on 4/30/14.
@@ -22,6 +25,12 @@ import java.util.List;
 public class DistrictController {
     @Autowired
     private DistrictDao districtDao;
+
+    @Autowired
+    private ChannelDao channelDao;
+
+    @Autowired
+    private ChannelTagDao channelTagDao;
 
     @RequestMapping(value = "/bin/district/save", method = RequestMethod.GET)
     public String saveDistrict() {
@@ -69,5 +78,24 @@ public class DistrictController {
         List<District> districtList = districtDao.findDistrict();
         model.addAttribute("districtList",districtList);
         return new ModelAndView("market");
+    }
+
+    @RequestMapping(value = "/market/view/{districtName}", method = RequestMethod.GET)
+    public ModelAndView findAll(@PathVariable String districtName, Model model) {
+        Map<String, List<Tag>> map = new HashMap<String, List<Tag>>();
+        String cname = null;
+
+        int did = districtDao.findIdByDistrictName(districtName);
+
+        List<Channel> channelList = channelDao.findChannelsByDistrictId(did);
+        for (Channel channel : channelList) {
+            cname = channel.getCname();
+            int cid = channelDao.findIdByChannelName(cname);
+            List<Tag> tagList = channelTagDao.findTagsByChannelId(cid);
+            map.put(cname, tagList);
+        }
+        model.addAttribute("map", map);
+        model.addAttribute("channelList", channelList);
+        return new ModelAndView("district");
     }
 }
