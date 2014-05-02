@@ -152,7 +152,7 @@
             <div class="icon">
                 <i class="ion "></i>
             </div>
-            <a href="/market/add/district" class="small-box-footer">
+            <a href="/market/delete/district" class="small-box-footer">
                 <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>

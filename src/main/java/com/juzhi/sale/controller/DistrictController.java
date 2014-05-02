@@ -46,7 +46,7 @@ public class DistrictController {
         return new ModelAndView("adddistrict");
     }
 
-    @RequestMapping(value="/market/add/district/done", method = RequestMethod.POST)
+    @RequestMapping(value = "/market/add/district/done", method = RequestMethod.POST)
     @ResponseBody
     public String save(@RequestBody String jsonString) {
 
@@ -73,10 +73,10 @@ public class DistrictController {
         return msg.toString();
     }
 
-    @RequestMapping(value = "/market/",method = RequestMethod.GET)
-    public ModelAndView findDistrict(Model model){
+    @RequestMapping(value = "/market/", method = RequestMethod.GET)
+    public ModelAndView findDistrict(Model model) {
         List<District> districtList = districtDao.findDistrict();
-        model.addAttribute("districtList",districtList);
+        model.addAttribute("districtList", districtList);
         return new ModelAndView("market");
     }
 
@@ -99,10 +99,24 @@ public class DistrictController {
         return new ModelAndView("district");
     }
 
-    @RequestMapping(value = "/market/delete/district/{districtName}",method = RequestMethod.GET)
-    public String deleteDistrict(@PathVariable String districtName){
+    @RequestMapping(value = "/market/delete/district", method = RequestMethod.GET)
+    public ModelAndView selectDistrict(Model model) {
+        List<District> list = districtDao.findDistrict();
+        model.addAttribute("districtList", list);
+        return new ModelAndView("deletedistrict");
+    }
+
+    @RequestMapping(value = "/market/delete/district/{districtName}", method = RequestMethod.GET)
+    public ModelAndView deleteDistrict(@PathVariable String districtName, Model model) {
         int did = districtDao.findIdByDistrictName(districtName);
-        districtDao.deleteDistrictByDId(did);
-        return "";
+        StringBuilder msg = new StringBuilder();
+        if (did != 0) {
+            districtDao.deleteDistrictByDId(did);
+            msg.append("delete district success!");
+        }else {
+            msg.append("delete district fail!");
+        }
+        model.addAttribute("msg", msg);
+        return new ModelAndView("success");
     }
 }
