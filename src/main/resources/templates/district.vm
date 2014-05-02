@@ -128,40 +128,37 @@
                     </div><!-- /.row -->
 
                     #foreach($channel in $channelList)
-
                          <h4 class="page-header">
-                 $channel.cname
+                            $channel.cname
 
                         </h4>
                         #set ($tagList= $map.get( $channel.cname))
-                        #foreach($tag in $tagList)
 
                         <!-- Small boxes (Stat box) -->
                         <div class="row">
+                        #foreach($tag in $tagList)
                             <div class="col-lg-3 col-xs-6">
                                 <!-- small box -->
                                 <div class="small-box bg-teal">
                                     <div class="inner">
                                         <h3>
-            $tag.tname
+                                            $tag.tname
                                         </h3>
                                         <p>
-           $tag.description
-
+                                            $tag.description
                                         </p>
                                     </div>
                                     <div class="icon">
                                         <i class="ion "></i>
                                     </div>
-                                    <a target="_black" href="$tag.link
-            " class="small-box-footer">
+                                    <a target="_black" href="$tag.link  " class="small-box-footer">
                                         More info <i class="fa fa-arrow-circle-right"></i>
                                     </a>
                                 </div>
                             </div><!-- ./col -->
-                           #end
+                         #end
                         </div><!-- /.row -->
-                        #end
+                     #end
                         </section><!-- /.content -->
                         </aside><!-- /.right-side -->
 

@@ -103,4 +103,31 @@ public class DistrictDaoImpl implements DistrictDao {
 
         return ids.get(0);
     }
+
+    @Override
+    public void deleteDistrictByDId(int did) {
+        String sql1 = "delete from db_d_c_relation where d_id ="+did;
+        String sql2 = "delete from db_district where d_id="+did;
+        Connection conn = null;
+
+        try {
+            conn = dataSource.getConnection();
+            PreparedStatement prep1 = conn.prepareStatement(sql1);
+            prep1.execute(sql1);
+
+            PreparedStatement prep2 = conn.prepareStatement(sql2);
+            prep1.execute(sql2);
+
+            prep1.close();
+            prep2.close();
+        } catch (SQLException e) {
+           throw new RuntimeException(e);
+        }finally {
+            if (conn != null) try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

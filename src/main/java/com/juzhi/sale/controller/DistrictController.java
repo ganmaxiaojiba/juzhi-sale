@@ -98,4 +98,11 @@ public class DistrictController {
         model.addAttribute("channelList", channelList);
         return new ModelAndView("district");
     }
+
+    @RequestMapping(value = "/market/delete/district/{districtName}",method = RequestMethod.GET)
+    public String deleteDistrict(@PathVariable String districtName){
+        int did = districtDao.findIdByDistrictName(districtName);
+        districtDao.deleteDistrictByDId(did);
+        return "";
+    }
 }
