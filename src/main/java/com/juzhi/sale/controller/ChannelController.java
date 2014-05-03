@@ -113,7 +113,6 @@ public class ChannelController {
             DistrictChannelWrapper wrapper = mapper.readValue(jsonString, DistrictChannelWrapper.class);
             Channel channel = new Channel();
             channel.setCname(wrapper.getChannelName());
-
             channelDao.saveChannel(channel,wrapper.getDistrictName());
 
         } catch (IOException e) {

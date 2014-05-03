@@ -1,6 +1,6 @@
 #include("htmlheader.vm")
 
-<body class="skin-blue">
+<body class="skin-blue" onload="form1.input.focus()">
 <!-- header logo: style can be found in header.less -->
 <header class="header">
     <a href="../../index.html" class="logo">
@@ -26,7 +26,7 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form">
+                        <form role="form" name="form1">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">地区名称</label>
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">渠道框名称</label>
-                                    <input type="text" class="form-control" id="channelName"
+                                    <input type="text" class="form-control" id="channelName" name="input"
                                            placeholder="渠道框名称"/>
                                 </div>
                             </div>
@@ -73,10 +73,16 @@
          $('#districtName').val(districtName);
          $('#districtName').attr("disabled", true);
 
-
-            $("#previous").click(function(){
+         $("#previous").click(function(){
                                   location.href="/market/add/channel?dname="+districtName;
                             });
+
+         $('#channelName').blur(function(){
+            if(!$('#channelName').val()){
+                alert('渠道框名称不能为空!');
+            }
+            return false;
+         });
 
          $("#save").click(function(){
 
@@ -103,7 +109,6 @@
                         dataType: "text",
                         success: function(msg){
                             alert("success: "+msg);
-                            $('#channelName').val('');
                         },
                         failure: function(msg) {
                             alert("error: "+msg);

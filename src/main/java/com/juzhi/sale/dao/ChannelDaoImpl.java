@@ -29,13 +29,13 @@ public class ChannelDaoImpl implements ChannelDao {
 
     @Override
     public void saveChannel(Channel channel, String dname) {
-        String sql = "insert into db_channel(cname) " +
-                "select '"+channel.getCname()+"' from db_channel where not exists(select * from db_channel where cname= '"+channel.getCname()+"')";
+        String sql1 = "insert into db_channel(cname) " +
+                "select '"+channel.getCname()+"' from db_channel where not exists(select * from db_channel where cname= '"+channel.getCname()+"') limit 1";
         Connection connection = null;
 
         try {
             connection = dataSource.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql1);
             //preparedStatement.setString(1, channel.getCname());
             preparedStatement.executeUpdate();
             preparedStatement.close();
@@ -53,11 +53,11 @@ public class ChannelDaoImpl implements ChannelDao {
         int cid = findIdByChannelName(channel.getCname());
         int did = districtDao.findIdByDistrictName(dname);
 
-        sql = "insert into db_d_c_relation(d_id, c_id) value (?,?)";
+       String sql2 = "insert into db_d_c_relation(d_id, c_id) value (?,?)";
 
         try {
             connection = dataSource.getConnection();
-            PreparedStatement prep = connection.prepareStatement(sql);
+            PreparedStatement prep = connection.prepareStatement(sql2);
 
             prep.setInt(1, did);
             prep.setInt(2, cid);
