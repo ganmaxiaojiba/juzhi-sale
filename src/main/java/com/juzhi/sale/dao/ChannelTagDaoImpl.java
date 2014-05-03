@@ -106,7 +106,7 @@ public class ChannelTagDaoImpl implements ChannelTagDao {
             while(resultSet.next()){
                 Tag tag = new Tag();
                 tag.setTname(resultSet.getString("tname"));
-                tag.setDescription(resultSet.getString("discription"));
+                tag.setDescription(resultSet.getString("description"));
                 tag.setLink(resultSet.getString("link"));
                 tag.setClick_rate(resultSet.getInt("click_rate"));
                 list.add(tag);
@@ -203,6 +203,67 @@ public class ChannelTagDaoImpl implements ChannelTagDao {
             }
         }
 
+        return tagList;
+    }
+
+    @Override
+    public void deleteTagbyTId(int tid) {
+        String sql1= "delete from db_c_t_relation where t_id="+tid;
+        String sql2 = "delete from db_tag where t_id="+tid;
+        Connection conn = null;
+
+        try {
+            conn = dataSource.getConnection();
+            PreparedStatement prep1 = conn.prepareStatement(sql1);
+            prep1.execute(sql1);
+
+            PreparedStatement prep2 =conn.prepareStatement(sql2);
+            prep2.execute(sql2);
+
+            prep2.close();
+            prep1.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            if (null != conn) try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public List<Tag> findTag() {
+        String sql = "select * from db_tag";
+        Connection conn = null;
+        List<Tag> tagList = new ArrayList<>();
+
+        try {
+            conn = dataSource.getConnection();
+            PreparedStatement prep = conn.prepareStatement(sql);
+            ResultSet rs = prep.executeQuery(sql);
+
+            while (rs.next()){
+                Tag tag = new Tag();
+                tag.setTname(rs.getString("tname"));
+                tag.setDescription(rs.getString("description"));
+                tag.setLink(rs.getString("link"));
+                tag.setClick_rate(rs.getInt("click_rate"));
+                tagList.add(tag);
+            }
+
+            rs.close();
+            prep.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            if (null != conn) try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         return tagList;
     }
 

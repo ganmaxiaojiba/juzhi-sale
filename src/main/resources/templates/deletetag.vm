@@ -1,0 +1,67 @@
+#include("htmlheader.vm")
+
+    <body class="skin-blue">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="../../index.html" class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                巨智综合服务平台
+            </a>
+            #include("top.vm")
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            #include("leftmenu.vm")
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-6">
+                            <!-- general form elements -->
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">选择渠道标签</h3>
+                                </div><!-- /.box-header -->
+                                <!-- form start -->
+                                <form role="form">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">选择</label>
+                                            <select class="form-control" id="tag">
+                                                #foreach($tag in $tagList)
+                                                <option value="$tag.tid">$tag.tname</option>
+                                                #end
+                                            </select>
+                                        </div>
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer" align="right">
+                                        <input id="delete" value ="删除" class="btn btn-primary" style="width:100px"/>
+
+                                    </div>
+                                </form>
+                            </div><!-- /.box -->
+                        </div><!--/.col (left) -->
+
+                    </div>   <!-- /.row -->
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+        <!-- jQuery 2.0.2 -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="/resources/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- AdminLTE App -->
+        <script src="/resources/js/AdminLTE/app.js" type="text/javascript"></script>
+        <script>
+        $(document).ready(function(){
+           $("#delete").click(function(){
+                     var tname = $( "#tag option:selected" ).text();
+                     location.href="/market/delete/tag/"+tname;
+           });
+        });
+        </script>
+    </body>
+  #include("htmlfooter.vm")

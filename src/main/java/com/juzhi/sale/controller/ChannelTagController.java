@@ -140,5 +140,31 @@ public class ChannelTagController {
         return tags.toString();
     }
 
+    /*
+    删除第一步，查出所有的tag
+     */
+  @RequestMapping(value = "/market/delete/tag",method = RequestMethod.GET)
+  public ModelAndView selectTag(Model model){
+      List<Tag> tagList = channelTagDao.findTag();
+      model.addAttribute("tagList",tagList);
+      return new ModelAndView("deletetag");
+  }
+
+    /*
+    删除第二步，删除是否成功
+     */
+  @RequestMapping(value = "/market/delete/tag/{tagName}",method = RequestMethod.GET)
+  public ModelAndView deleteTag(@PathVariable String tagName, Model model){
+      int tid = channelTagDao.findIdByChannelTagName(tagName);
+      StringBuilder msg = new StringBuilder();
+      if (tid != 0){
+      channelTagDao.deleteTagbyTId(tid);
+          msg.append("delete tag success!");
+      }else {
+          msg.append("delete tag fail！");
+      }
+      model.addAttribute("msg",msg);
+      return new ModelAndView("success");
+  }
 
 }
