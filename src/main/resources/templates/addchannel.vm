@@ -81,7 +81,7 @@
          $("#save").click(function(){
 
             var districtName = $("#districtName").val();
-            var channelName = $("#channelName").val();
+            var channelName = districtName+$("#channelName").val();
 
 
             var myObj = {};
