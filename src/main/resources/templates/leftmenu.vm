@@ -5,12 +5,12 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="/resources/img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="/resources/img/juzhi-logo.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Jane</p>
+                            <p>您好！巨智教育</p>
 
-                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                            <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
                         </div>
                     </div>
                     <!-- search form -->
@@ -26,11 +26,6 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="index.html">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="/market/">
                                 <i class="fa fa-th"></i> <span>巨智网络营销平台</span>
                             </a>
@@ -39,3 +34,11 @@
                 </section>
                 <!-- /.sidebar -->
             </aside>
+
+              <script>
+                    $(document).ready(function(){
+                       $("#search-btn").click(function(){
+                                 location.href="/websiteupdate";
+                       });
+                    });
+                    </script>
