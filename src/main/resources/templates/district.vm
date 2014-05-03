@@ -30,7 +30,12 @@
 
                     #foreach($channel in $channelList)
                          <h4 class="page-header">
-                            $channel.cname
+                            #set ($Title =  $channel.cname)
+
+                            #set ($str = $dname)
+
+
+                            $Title.split($str)[1]
 
                         </h4>
                         #set ($tagList= $map.get( $channel.cname))
