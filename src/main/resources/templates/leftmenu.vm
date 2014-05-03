@@ -27,7 +27,7 @@
                     <ul class="sidebar-menu">
                         <li class="active">
                             <a href="/market/">
-                                <i class="fa fa-th"></i> <span>巨智网络营销平台</span>
+                                <i class="fa fa-th"></i> <span>巨智网络营销平台</span> <small class="badge pull-right bg-green">主页</small>
                             </a>
                         </li>
                                            </ul>
