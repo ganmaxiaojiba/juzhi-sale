@@ -119,6 +119,9 @@
 
                         success: function(msg){
                          alert("success:"+msg);
+                         $('#tagName').val('')
+                         $('#tagDesc').val('')
+                         $('#tagLink').val('')
                         },
 
                         failure: function(msg) {

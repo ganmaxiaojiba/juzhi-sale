@@ -104,6 +104,7 @@
                         dataType: "text",
                         success: function(msg){
                             alert("success: "+msg);
+                            $('#channelName').val('');
                         },
                         failure: function(msg) {
                             alert("error: "+msg);
