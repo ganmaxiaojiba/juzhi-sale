@@ -74,6 +74,9 @@ public class ChannelController {
         return id;
     }
 
+    /*
+    add channel ,step 1:select district.
+     */
     @RequestMapping(value = "/market/add/channel", method = RequestMethod.GET)
     public ModelAndView selectDistrict(Model model) {
         List<District> list = districtDao.findDistrict();
@@ -81,6 +84,9 @@ public class ChannelController {
         return new ModelAndView("selectdistrict");
     }
 
+    /*
+    add channel ,step 2:redirect addchannel page.
+     */
     @RequestMapping(value = "/market/add/channel/{districtName}", method = RequestMethod.GET)
     public String redirectToAddChannelPage(@PathVariable String districtName,Model model) {
 //        Tag tag = new Tag();
@@ -92,6 +98,9 @@ public class ChannelController {
         return "addchannel";
     }
 
+    /*
+    add channel, step3: save channel to database table db_channel and db_d_c_relation;
+     */
     @RequestMapping(value="/market/add/channel/done", method = RequestMethod.POST)
     @ResponseBody
     public String save(@RequestBody String jsonString) {
@@ -104,6 +113,7 @@ public class ChannelController {
             DistrictChannelWrapper wrapper = mapper.readValue(jsonString, DistrictChannelWrapper.class);
             Channel channel = new Channel();
             channel.setCname(wrapper.getChannelName());
+
             channelDao.saveChannel(channel,wrapper.getDistrictName());
 
         } catch (IOException e) {

@@ -83,7 +83,6 @@
             var districtName = $("#districtName").val();
             var channelName = districtName+$("#channelName").val();
 
-
             var myObj = {};
             myObj["districtName"] = districtName;
             myObj["channelName"] = channelName;
