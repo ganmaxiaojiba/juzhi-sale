@@ -11,13 +11,10 @@
         based on the recommendations of the Application Developer's Guide.
     </description>
 
-
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:context/*.xml</param-value>
     </context-param>
-
-
 
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -33,39 +30,24 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-
-
     <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>com.juzhi.sale.servlet.HelloworldServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>spring</servlet-name>
+        <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:context/spring-servlet.xml</param-value>
+            <param-value></param-value>
         </init-param>
-
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>spring</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
-
 
     <error-page>
         <error-code>500</error-code>
@@ -77,9 +59,8 @@
         <location>/error/404</location>
     </error-page>
 
-
     <welcome-file-list>
-        <welcome-file>index.vm</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
 
 </web-app>

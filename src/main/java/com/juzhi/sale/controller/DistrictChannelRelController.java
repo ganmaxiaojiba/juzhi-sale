@@ -21,12 +21,6 @@ public class DistrictChannelRelController {
     @Autowired
     private DistrictChannelRelDao districtChannelRelDao;
 
-    @Autowired
-    private District district;
-
-    @Autowired
-    private Channel channel;
-
     @RequestMapping(value = "/bin/districtchannelrel/save", method = RequestMethod.GET)
     public String saveDistrictChannelRel() {
         DistrictChannelRel districtChannelRel = new DistrictChannelRel();

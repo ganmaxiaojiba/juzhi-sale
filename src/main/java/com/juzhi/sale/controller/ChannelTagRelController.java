@@ -21,12 +21,6 @@ public class ChannelTagRelController {
     @Autowired
     private ChannelTagRelDao channelTagRelDao;
 
-    @Autowired
-    private Tag tag;
-
-    @Autowired
-    private Channel channel;
-
     @RequestMapping(value = "/bin/tagrelation/save", method = RequestMethod.GET)
     public String saveTagRel() {
         ChannelTagRel channelTagRel = new ChannelTagRel();
