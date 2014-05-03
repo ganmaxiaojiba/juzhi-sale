@@ -119,4 +119,13 @@ public class DistrictController {
         model.addAttribute("msg", msg);
         return new ModelAndView("success");
     }
+
+
+    @RequestMapping("/market/add/district/{districtName}")
+    public ModelAndView addDistrictNav(@PathVariable String districtName, Model model) {
+
+        model.addAttribute("dname", districtName);
+
+        return new ModelAndView("adddistrictnav");
+    }
 }

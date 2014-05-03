@@ -20,35 +20,31 @@
                 <!-- left column -->
                 <div class="col-md-6">
                     <!-- general form elements -->
-                    <div class="box box-primary">
+                    <div class="box box-primary" align="center">
                         <div class="box-header">
-                            <h3 class="box-title">添加渠道框</h3>
+                            <h3 class="box-title">请选择渠道添加方式</h3>
                         </div>
                         <!-- /.box-header -->
-                        <!-- form start -->
-                        <form role="form">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">地区名称</label>
-                                    <input type="text" class="form-control" id="districtName"
-                                           placeholder="" value=""/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">渠道框名称</label>
-                                    <input type="text" class="form-control" id="channelName"
-                                           placeholder="渠道框名称"/>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
 
-                            <div class="box-footer">
-                                <input id="previous" value="上一步" class="btn btn-primary" style="width:100px">
-                                <input id="save" value="保存" class="btn btn-primary" style="width:100px">
-                            </div>
-                        </form>
+
+
+                        <div class="box-body">
+
+                                                            <a class="btn btn-app" style="
+                                                                                       width: 162px;
+                                                                                       height: 82px;
+                                                                                   ">
+                                                                <i class="fa fa-barcode"></i>添加已有渠道</a>
+
+
+                                                            <a href="/market/add/channel/$dname" class="btn btn-app" style="
+                                                                                       width: 162px;
+                                                                                       height: 82px;
+                                                                                   ">
+                                                                <i class="fa fa-barcode"></i>添加新的渠道</a>
+                                                        </div>
                     </div>
                     <!-- /.box -->
-
                 </div>
                 <!-- /.row -->
         </section>
@@ -68,29 +64,16 @@
 <script type="text/javascript">
     $(document).ready(function(){
 
-         var pathname = window.location.pathname;
-         var districtName = decodeURI(pathname.split('/')[4]);
-         $('#districtName').val(districtName);
-         $('#districtName').attr("disabled", true);
-
-
-              $("#previous").click(function(){
-                    location.href="/market/add/channel/";
-              });
-
          $("#save").click(function(){
 
             var districtName = $("#districtName").val();
-            var channelName = $("#channelName").val();
-
+            var districtDesc = $("#districtDesc").val();
 
             var myObj = {};
-            myObj["districtName"] = districtName;
-            myObj["channelName"] = channelName;
-
+            myObj["dname"] = districtName;
+            myObj["description"] = districtDesc;
 
             var data = JSON.stringify(myObj);
-
 
                 $.ajax({
                 headers: {
@@ -98,7 +81,7 @@
                         "Content-Type": "text/plain; charset=utf-8"
                     },
                         type: "POST",
-                        url: "/market/add/channel/done",
+                        url: "/market/add/district/done",
                         data: data,
                         contentType: "application/json; charset=utf-8",
                         dataType: "text",
@@ -111,7 +94,6 @@
                   });
          });
     });
-
 
 
 
