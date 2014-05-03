@@ -57,6 +57,10 @@
         <script src="/resources/js/AdminLTE/app.js" type="text/javascript"></script>
         <script>
         $(document).ready(function(){
+
+           var dname = ;
+
+
            $("#next").click(function(){
                      var cname = $( "#channel option:selected" ).text();
                      location.href="/market/add/tag/"+cname;

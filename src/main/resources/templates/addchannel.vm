@@ -74,9 +74,9 @@
          $('#districtName').attr("disabled", true);
 
 
-              $("#previous").click(function(){
-                    location.href="/market/add/channel/";
-              });
+            $("#previous").click(function(){
+                                  location.href="/market/add/channel?dname="+districtName;
+                            });
 
          $("#save").click(function(){
 
