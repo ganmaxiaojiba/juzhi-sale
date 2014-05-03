@@ -77,12 +77,3 @@
 
 </body>
 #include("htmlfooter.vm")
-
-</aside><!-- /.right-side -->
-
-
-</div><!-- ./wrapper -->
-
-
-</body>
-#include("htmlfooter.vm")
