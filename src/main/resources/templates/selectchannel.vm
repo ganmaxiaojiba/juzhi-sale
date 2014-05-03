@@ -58,8 +58,6 @@
         <script>
         $(document).ready(function(){
 
-           var dname = ;
-
 
            $("#next").click(function(){
                      var cname = $( "#channel option:selected" ).text();
