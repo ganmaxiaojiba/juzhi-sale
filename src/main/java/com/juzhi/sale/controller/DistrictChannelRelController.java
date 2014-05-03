@@ -1,11 +1,14 @@
 package com.juzhi.sale.controller;
 
 import com.juzhi.sale.dao.DistrictChannelRelDao;
-import com.juzhi.sale.entity.*;
+import com.juzhi.sale.entity.Channel;
+import com.juzhi.sale.entity.District;
+import com.juzhi.sale.entity.DistrictChannelRel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.juzhi.sale.dao;
 
-import com.juzhi.sale.entity.*;
+import com.juzhi.sale.entity.ChannelTagRel;
 
 import java.util.List;
 

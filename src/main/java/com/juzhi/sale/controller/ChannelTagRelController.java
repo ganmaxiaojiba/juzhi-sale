@@ -1,7 +1,9 @@
 package com.juzhi.sale.controller;
 
 import com.juzhi.sale.dao.ChannelTagRelDao;
-import com.juzhi.sale.entity.*;
+import com.juzhi.sale.entity.Channel;
+import com.juzhi.sale.entity.ChannelTagRel;
+import com.juzhi.sale.entity.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,11 +1,15 @@
 package com.juzhi.sale.dao;
 
-import com.juzhi.sale.entity.*;
+import com.juzhi.sale.entity.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.sql.*;
-import java.sql.*;
-import java.util.*;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xjwan on 4/30/14.
@@ -67,6 +71,13 @@ public class ChannelDaoImpl implements ChannelDao {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void saveChannelListByDName( String dname) {
+
+        int did = districtDao.findIdByDistrictName(dname);
+        String sql = "insert into db_d_c_relation(d_id, c_id) value (?,?)";
     }
 
     @Override
@@ -174,7 +185,7 @@ public class ChannelDaoImpl implements ChannelDao {
                 "IN ( " +
                 "SELECT r.c_id " +
                 "FROM db_d_c_relation r  " +
-                "WHERE r.d_id="+did+")";
+                "WHERE r.d_id=" + did + ")";
 
         Connection conn = null;
         List channelList = new ArrayList<Channel>();
@@ -210,21 +221,26 @@ public class ChannelDaoImpl implements ChannelDao {
     }
 
     @Override
-    public void deleteChannelByDistrictIdAndChannelId(int did, int cid) {
+    public void deleteChannelByChannelId(int cid) {
 
-        String sql = "delete from db_d_c_relation where d_id="+did+" and c_id="+cid;
-
+        String sql1 = "delete from db_d_c_relation where c_id=" + cid;
+        String sql2 = "delete from db_c_t_relation where c_id=" + cid;
+        String sql3 ="delete from db_channel where c_id = "+cid;
         Connection conn = null;
         try {
             conn = dataSource.getConnection();
-            PreparedStatement prep = conn.prepareStatement(sql);
-//            prep.setInt(1, did);
-//            prep.setInt(2, cid);
+            PreparedStatement prep1 = conn.prepareStatement(sql1);
+            prep1.execute(sql1);
 
-            prep.executeUpdate(sql);
+            PreparedStatement prep2 = conn.prepareStatement(sql2);
+            prep2.execute(sql2);
 
+            PreparedStatement prep3 = conn.prepareStatement(sql3);
+            prep3.execute(sql3);
 
-            prep.close();
+            prep3.close();
+            prep2.close();
+            prep1.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -234,8 +250,6 @@ public class ChannelDaoImpl implements ChannelDao {
                 e.printStackTrace();
             }
         }
-
-
     }
 
 }

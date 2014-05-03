@@ -5,18 +5,15 @@ import com.juzhi.sale.dao.DistrictDao;
 import com.juzhi.sale.entity.Channel;
 import com.juzhi.sale.entity.District;
 import com.juzhi.sale.entity.DistrictChannelWrapper;
-import com.juzhi.sale.entity.Tag;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.*;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -138,13 +135,30 @@ public class ChannelController {
         return channels.toString();
     }
 
-    @RequestMapping("/market/delete/channel/{did}/{cid}")
-    @ResponseBody
-    public String deleteChannel(@PathVariable int did, @PathVariable int cid) {
+    /*
+删除第一步，查出所有的channel
+ */
+    @RequestMapping(value = "/market/delete/channel",method = RequestMethod.GET)
+    public ModelAndView selectChannel(Model model){
+        List<Channel> channelList = channelDao.findChannel();
+        model.addAttribute("channelList",channelList);
+        return new ModelAndView("deletechannel");
+    }
 
-        channelDao.deleteChannelByDistrictIdAndChannelId(did, cid);
-
-
-        return "";
+    /*
+    删除第二步，删除是否成功
+     */
+    @RequestMapping(value = "/market/delete/channel/{channelName}",method = RequestMethod.GET)
+    public ModelAndView deleteTag(@PathVariable String channelName, Model model){
+        int cid = channelDao.findIdByChannelName(channelName);
+        StringBuilder msg = new StringBuilder();
+        if (cid != 0){
+            channelDao.deleteChannelByChannelId(cid);
+            msg.append("delete channel success!");
+        }else {
+            msg.append("delete channel fail！");
+        }
+        model.addAttribute("msg",msg);
+        return new ModelAndView("success");
     }
 }

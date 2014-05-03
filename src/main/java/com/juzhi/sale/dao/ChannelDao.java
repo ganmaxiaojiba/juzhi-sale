@@ -1,6 +1,6 @@
 package com.juzhi.sale.dao;
 
-import com.juzhi.sale.entity.*;
+import com.juzhi.sale.entity.Channel;
 
 import java.util.List;
 
@@ -10,6 +10,8 @@ import java.util.List;
 public interface ChannelDao {
     public void saveChannel(Channel channel,String dname);
 
+    public void saveChannelListByDName(String dname);
+
     public int findIdByChannelName(String channelName);
 
     public List<Channel> findChannel();
@@ -18,5 +20,5 @@ public interface ChannelDao {
 
     public List<Channel> findChannelsByDistrictId(int did);
 
-    public void deleteChannelByDistrictIdAndChannelId(int did, int cid);
+    public void deleteChannelByChannelId(int cid);
 }

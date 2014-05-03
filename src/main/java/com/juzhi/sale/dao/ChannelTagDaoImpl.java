@@ -3,9 +3,13 @@ package com.juzhi.sale.dao;
 import com.juzhi.sale.entity.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.sql.*;
-import java.sql.*;
-import java.util.*;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by xjwan on 4/30/14.
