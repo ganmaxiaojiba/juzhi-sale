@@ -59,7 +59,7 @@
 </div>
 
 <h4 class="page-header">
-    添加操作
+    添加管理
 </h4>
 <!-- Small boxes (Stat box) -->
 <div class="row">
@@ -133,7 +133,7 @@
 
 
 <h4 class="page-header">
-    删除操作
+    删除管理
 </h4>
 <!-- Small boxes (Stat box) -->
 <div class="row">

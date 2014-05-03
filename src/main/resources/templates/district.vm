@@ -16,7 +16,7 @@
                         <!-- Content Header (Page header) -->
                         <section class="content-header">
                         <h1>
-            网络营销平台
+            $dname地区
                         </h1>
                         <ol class="breadcrumb">
                             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -26,106 +26,7 @@
 
                         <!-- Main content -->
                         <section class="content">
-                <h4 class="page-header">
-            常用
-                        </h4>
-                        <!-- Small boxes (Stat box) -->
-                        <div class="row">
-                            <div class="col-lg-3 col-xs-6">
-                                <!-- small box -->
-                                <div class="small-box bg-olive">
-                                    <div class="inner">
-                                        <h3>
-            华智后台
 
-                                        </h3>
-                                        <p>
-
-
-            http://witsun.cn/hzdedeguanli/
-
-                                        </p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion "></i>
-                                    </div>
-                                    <a target="_black" href="http://witsun.cn/hzdedeguanli/
-
-            " class="small-box-footer">
-                                        More info <i class="fa fa-arrow-circle-right"></i>
-                                    </a>
-                                </div>
-                            </div><!-- ./col -->
-                            <div class="col-lg-3 col-xs-6">
-                                <!-- small box -->
-                                <div class="small-box bg-olive">
-                                    <div class="inner">
-                                        <h3>
-            百度推广
-
-                                        </h3>
-                                        <p>
-            http://www2.baidu.com
-
-                                        </p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion "></i>
-                                    </div>
-                                    <a href="http://www2.baidu.com
-
-            " target="_blank" class="small-box-footer">
-                                        More info <i class="fa fa-arrow-circle-right"></i>
-                                    </a>
-                                </div>
-                            </div><!-- ./col -->
-                              <div class="col-lg-3 col-xs-6">
-                                <!-- small box -->
-                                <div class="small-box bg-olive">
-                                    <div class="inner">
-                                        <h3>
-
-            百度知道
-                                        </h3>
-                                        <p>
-
-            http://www.baidu.com/p/
-                                        </p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion "></i>
-                                    </div>
-                                    <a href="http://www.baidu.com/p/%E5%8D%8E%E6%99%BA%E5%85%AC%E5%8A%A1%E5%91%983
-            " target="_blank" class="small-box-footer">
-                                        More info <i class="fa fa-arrow-circle-right"></i>
-                                    </a>
-                                </div>
-                            </div><!-- ./col -->
-                             <div class="col-lg-3 col-xs-6">
-                                <!-- small box -->
-                                <div class="small-box bg-olive">
-                                    <div class="inner">
-                                        <h3>
-
-
-            新浪微博
-                                        </h3>
-                                        <p>
-
-            http://weibo.com/huazhipeixun
-                                        </p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion "></i>
-                                    </div>
-                                    <a href="http://weibo.com/huazhipeixun
-
-            " target="_blank" class="small-box-footer">
-                                        More info <i class="fa fa-arrow-circle-right"></i>
-                                    </a>
-                                </div>
-                            </div><!-- ./col -->
-                    </div><!-- /.row -->
 
                     #foreach($channel in $channelList)
                          <h4 class="page-header">

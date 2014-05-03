@@ -96,6 +96,8 @@ public class DistrictController {
         }
         model.addAttribute("map", map);
         model.addAttribute("channelList", channelList);
+        model.addAttribute("dname", districtName);
+
         return new ModelAndView("district");
     }
 
