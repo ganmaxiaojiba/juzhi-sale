@@ -43,7 +43,7 @@
                         <!-- Small boxes (Stat box) -->
                         <div class="row">
                         #foreach($tag in $tagList)
-                            <div class="col-lg-3 col-xs-6">
+                            <div class="col-lg-3 col-xs-6" >
                                 <!-- small box -->
                                 <div class="small-box bg-teal">
                                     <div class="inner">
@@ -57,7 +57,7 @@
                                     <div class="icon">
                                         <i class="ion "></i>
                                     </div>
-                                    <a target="_black" href="$tag.link  " class="small-box-footer">
+                                    <a target="_black" href="$tag.link " class="small-box-footer">
                                         More info <i class="fa fa-arrow-circle-right"></i>
                                     </a>
                                 </div>
@@ -71,6 +71,20 @@
 
         </div><!-- ./wrapper -->
 
+ <!-- jQuery 2.0.2 -->
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+ <script>
+    $(function(){
+    	var colors = ['bg-red','bg-teal', 'bg-blue','bg-yellow','bg-aqua','bg-light-blue','bg-green','bg-navy','bg-olive','bg-lime','bg-orange','bg-fuchsia'
+    		,'bg-purple','bg-maroon'];
+        var i = 0;
 
-    </body>
+
+    			$('.row').each(function(){
+
+    			      var smallbox = $(this).find('.small-box').removeClass();smallbox.addClass('small-box');smallbox.addClass(colors[i]);i = i +1;
+    			});
+    	});
+ </script>
+ </body>
   #include("htmlfooter.vm")
