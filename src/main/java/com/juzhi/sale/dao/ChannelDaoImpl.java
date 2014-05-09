@@ -2,6 +2,7 @@ package com.juzhi.sale.dao;
 
 import com.juzhi.sale.entity.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -22,6 +23,14 @@ public class ChannelDaoImpl implements ChannelDao {
     @Autowired
     private DistrictDao districtDao;
 
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+
     public ChannelDaoImpl() {
 
     }
@@ -29,50 +38,35 @@ public class ChannelDaoImpl implements ChannelDao {
 
     @Override
     public void saveChannel(Channel channel, String dname) {
-        String sql1 = "insert into db_channel(cname) " +
-                "select '"+channel.getCname()+"' from db_channel where not exists(select * from db_channel where cname= '"+channel.getCname()+"') limit 1";
-        Connection connection = null;
+//        String sql1 = "insert into db_channel(cname) " +
+//                "select '"+channel.getCname()+"' from db_channel where not exists(select * from db_channel where cname= '"+channel.getCname()+"') limit 1";
+//        Connection connection = null;
+//
+//        try {
+//            connection = dataSource.getConnection();
+//            PreparedStatement preparedStatement = connection.prepareStatement(sql1);
+//            //preparedStatement.setString(1, channel.getCname());
+//            preparedStatement.executeUpdate();
+//            preparedStatement.close();
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        } finally {
+//            if (null != connection) try {
+//                connection.close();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
 
-        try {
-            connection = dataSource.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql1);
-            //preparedStatement.setString(1, channel.getCname());
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (null != connection) try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        jdbcTemplate.update("insert into db_channel(cname) values(?)", channel.getCname());
 
         int cid = findIdByChannelName(channel.getCname());
         int did = districtDao.findIdByDistrictName(dname);
 
-       String sql2 = "insert into db_d_c_relation(d_id, c_id) value (?,?)";
 
-        try {
-            connection = dataSource.getConnection();
-            PreparedStatement prep = connection.prepareStatement(sql2);
-
-            prep.setInt(1, did);
-            prep.setInt(2, cid);
-
-            prep.executeUpdate();
-            prep.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (null != connection) try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+       jdbcTemplate.update("insert into db_d_c_relation(d_id, c_id) value (?,?)", did, cid);
     }
 
     @Override

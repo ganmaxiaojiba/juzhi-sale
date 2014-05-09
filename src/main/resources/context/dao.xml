@@ -7,7 +7,7 @@
 
     <bean id="helloDaoImpl" class="com.juzhi.sale.dao.HelloDaoImpl" />
 
-    <bean id="channelDao" class="com.juzhi.sale.dao.ChannelDaoImpl" />
+    <bean id="channelDao" class="com.juzhi.sale.dao.ChannelDaoImpl"  parent="abstractDao" />
 
     <bean id="channelTagDao" class="com.juzhi.sale.dao.ChannelTagDaoImpl"/>
 
@@ -16,5 +16,16 @@
     <bean id="districtChannelRelDao" class="com.juzhi.sale.dao.DistrictChannelRelDaoImpl"/>
 
     <bean id="channelTagRelDao" class="com.juzhi.sale.dao.ChannelTagRelDaoImpl"/>
+
+
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="abstractDao" abstract="true">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+
 
 </beans>
